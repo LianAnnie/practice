@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>firebas-practice</title>
+        <link rel="stylesheet" href="index.css"/>
+    </head>
+    <body>
+        <section>
+            <h1 class="title">新增資料</h1>
+            <form class="creatData" id="creatData" name="creatDatas">
+                <div class="container">
+                    <label class="label" for="title">Title</label>
+                    <input type="text" id="title" name="title"/><br>
+                </div>
+                <div class="container">
+                    <label class="label" for="content">Content</label>
+                    <input type="text" id="content" name="content"/>    
+                </div>
+                <div class="container">
+                <input class="inputBox" type="checkbox" id="beauty" value="beauty" onclick="singleTimeAnswer(this)"/>
+                <label for="beauty">Beauty</label>
+                <input class="inputBox" type="checkbox" id="gossiping" value="gossiping" onclick="singleTimeAnswer(this)"/>
+                <label for="gossiping">Gossiping</label>
+                <input class="inputBox" type="checkbox" id="schoolLife" value="schoolLife" onclick="singleTimeAnswer(this)"/>
+                <label for="schoolLife">SchoolLife</label><br>
+            </div>
+            <div>
+                <div class="button" onclick="getInputData()">新增</div>
+            </div>
+            </form>            
+        </section>
+    </body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script type="text/javascript" src="firebaseSDK.js"></script>

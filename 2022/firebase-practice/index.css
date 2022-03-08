@@ -1,0 +1,158 @@
+/* ================================= 
+  Base Element Styles
+==================================== */
+
+/*框架*/
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+main {
+  margin: 0;
+}
+
+/*段落*/
+h1,
+h2,
+h3,
+h4 {
+  margin: 1em 0 0.5em;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.2em;
+}
+h4 {
+  font-size: 1em;
+}
+
+ul,
+ol {
+  margin: 1em 0;
+  list-style: none;
+}
+
+li {
+  margin: 0 0.5em;
+  list-style: none;
+}
+
+figure {
+  margin: 1em 0;
+}
+
+blockquote {
+  margin: 1em 40px;
+}
+
+a {
+  text-decoration: underline;
+}
+
+a:link {
+  color: #0000ee;
+}
+a:visited {
+  color: #551a8b;
+}
+a:active {
+  color: #ee0000;
+}
+a:active,
+a:hover {
+  outline: none;
+}
+a img {
+  border: none;
+}
+
+sup,
+sub {
+  line-height: 0;
+}
+
+/*其他*/
+q,
+cite {
+  font-style: italic;
+}
+sup,
+sub {
+  line-height: 0;
+}
+
+/*表格*/
+table {
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 1px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+td:first-child,
+th:first-child {
+  empty-cells: hide;
+}
+
+/* ================================= 
+  Base Layout Styles
+==================================== */
+body {
+  width: 100vw;
+  display: flex;
+  justify-content:center;
+}
+
+label {
+  margin: 20px 10PX;
+}
+
+.title {
+  text-align: center;
+  font-size:40px;
+}
+
+.creatData{
+  font-size: 20px;
+}
+
+.container {
+  margin:20px auto;
+  display: flex;
+  align-items:center;
+}
+
+.label{
+  width:100px;
+  margin: auto;
+}
+
+.button{
+  text-align: center;
+  width: 50px;
+  border: solid 1px #000000;
+  margin:20px auto;
+}
+
