@@ -14,145 +14,129 @@
 body {
   margin: 0;
   padding: 0;
-  font-size: 100%;
   line-height: 1.5;
-}
-
-main {
-  margin: 0;
-}
-
-/*段落*/
-h1,
-h2,
-h3,
-h4 {
-  margin: 1em 0 0.5em;
-  line-height: 1.25;
-}
-
-h1 {
-  font-size: 2em;
-}
-h2 {
-  font-size: 1.5em;
-}
-h3 {
-  font-size: 1.2em;
-}
-h4 {
-  font-size: 1em;
-}
-
-ul,
-ol {
-  margin: 1em 0;
-  list-style: none;
-}
-
-li {
-  margin: 0 0.5em;
-  list-style: none;
-}
-
-figure {
-  margin: 1em 0;
-}
-
-blockquote {
-  margin: 1em 40px;
-}
-
-a {
-  text-decoration: underline;
-}
-
-a:link {
-  color: #0000ee;
-}
-a:visited {
-  color: #551a8b;
-}
-a:active {
-  color: #ee0000;
-}
-a:active,
-a:hover {
-  outline: none;
-}
-a img {
-  border: none;
-}
-
-sup,
-sub {
-  line-height: 0;
-}
-
-/*其他*/
-q,
-cite {
-  font-style: italic;
-}
-sup,
-sub {
-  line-height: 0;
-}
-
-/*表格*/
-table {
-  border-collapse: collapse;
-}
-
-td,
-th {
-  padding: 1px;
-  vertical-align: middle;
-  text-align: left;
-}
-
-td:first-child,
-th:first-child {
-  empty-cells: hide;
-}
-
-/* ================================= 
-  Base Layout Styles
-==================================== */
-body {
-  width: 100vw;
+  background: #83b1c9;
+  font-size:100%;
+  font-family: sans-serif;
   display: flex;
   justify-content:center;
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
-label {
-  margin: 20px 10PX;
+section {
+  margin:20px;
+  width:80%;
+  background: #fff;
+  padding: 1em;
+  box-shadow: 0 0 1em #222;
+  border-radius: 30px;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  font-size: 1em;
+  display: flex;
+}
+
+article {
+  flex-grow:1;
 }
 
 .title {
+  font-size: 2em;
+}
+
+.button {
+  background-color: #C6D2BE;
+  border: solid 1px #9b9b9b;
   text-align: center;
-  font-size:40px;
+  padding: 5px;
+  color: #fff;
+  border-radius:5px;
 }
 
-.creatData{
-  font-size: 20px;
+.border{
+  border: solid 1px #9b9b9b;
+  border-radius:30px;
 }
 
-.container {
-  margin:20px auto;
+.friendContent{
+  height: 25vh;
+  padding-right: 17%;
+}
+
+.flex_row {
   display: flex;
-  align-items:center;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_evently{
+  display: flex;
+  justify-content:space-evenly;
+}
+
+.flex_end{
+  display: flex;
+  justify-content:flex-end;
+}
+
+.flex_align_end{
+  display: flex;
+  align-items:end;
 }
 
 .label{
-  width:100px;
-  margin: auto;
+  width: 70%;
 }
 
-.button{
-  text-align: center;
-  width: 50px;
-  border: solid 1px #000000;
-  margin:20px auto;
+.input{
+  margin-left: 50px;
+  margin-right: 20px;
+  border-radius: 5px;
+  border: solid 1px #83b1c9
 }
 
+.friendSystem{
+  display: flex;
+  flex-direction: column;
+}
+
+.friendSystem_search{
+  display: flex;
+  width:100%
+}
+
+.searchId{
+  width:20%;
+  font-size:1em;
+}
+
+.searchContent{
+  display: flex;
+  width: 80%;
+}
+
+.searchInput{
+  width:50%;
+  margin: 10px 0px;
+}
+
+.friendResult{
+  display: flex;
+  width:50%;
+  justify-content:space-evenly;
+  margin: 9px 0px;
+}
+
+.articleFunction{
+  width:40%;
+}
+
+
+.friendbutton{
+  margin-right: 50px;
+  margin-left: 50px;
+}

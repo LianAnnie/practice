@@ -5,29 +5,89 @@
         <link rel="stylesheet" href="index.css"/>
     </head>
     <body>
+        <section class="friendSystem">
+            <article class="friendSystem_search">
+                <h1 class="title searchId">Search User</h1>
+                <div class="content searchContent">
+                    <input class="searchInput input" type="text" id="searchAuthor" name="searchAuthor" placeholder="e-mail"/>
+                    <img src="img/search.png" onclick="getInputDataSearchId()">
+                    <div class="friendResult" id="friendResult"></div>
+                </div>
+            </article>
+            <div class="flex_row">
+                <article class="border">
+                    <h1 class="title invitation">Invitation</h1>
+                    <div class="content friendContent">
+                        <form class="confirmFriend" id="confirmFriend" name="confirmFriend">
+                            <div id="invitation">
+                            </div>
+                        </form>
+                    </div>
+                </article>
+                <article class="border">
+                    <h1 class="title friendList">Friend List</h1>
+                    <div class="content friendContent">
+                        <form class="friendList" id="friendList" name="friendList">
+                            <div id="friends">
+                            </div>
+                        </form>
+                    </div>
+                </article>
+            </div>
+        </section>
         <section>
-            <h1 class="title">新增資料</h1>
-            <form class="creatData" id="creatData" name="creatDatas">
-                <div class="container">
-                    <label class="label" for="title">Title</label>
-                    <input type="text" id="title" name="title"/><br>
-                </div>
-                <div class="container">
-                    <label class="label" for="content">Content</label>
-                    <input type="text" id="content" name="content"/>    
-                </div>
-                <div class="container">
-                <input class="inputBox" type="checkbox" id="beauty" value="beauty" onclick="singleTimeAnswer(this)"/>
-                <label for="beauty">Beauty</label>
-                <input class="inputBox" type="checkbox" id="gossiping" value="gossiping" onclick="singleTimeAnswer(this)"/>
-                <label for="gossiping">Gossiping</label>
-                <input class="inputBox" type="checkbox" id="schoolLife" value="schoolLife" onclick="singleTimeAnswer(this)"/>
-                <label for="schoolLife">SchoolLife</label><br>
-            </div>
-            <div>
-                <div class="button" onclick="getInputData()">新增</div>
-            </div>
-            </form>            
+            <article class="articleFunction">
+                <h1 class="title CreatArticle">Create Article</h1>
+                <div>
+                    <div class="content flex_column flex_align_end">
+                        <div class="container">
+                            <label class="label" for="title">Title</label>
+                            <input  class="input" type="text" id="title" name="title"/><br>
+                        </div>
+                        <div class="container">
+                            <label class="label" for="content">Content</label>
+                            <input class="input" type="text" id="content" name="content"/>    
+                        </div>
+                        <div class="container ">
+                            <input class="inputBox" type="checkbox" id="beauty" value="beauty" onclick="singleTimeAnswer(this)"/>
+                            <label for="beauty">Beauty</label>
+                            <input class="inputBox" type="checkbox" id="gossiping" value="gossiping" onclick="singleTimeAnswer(this)"/>
+                            <label for="gossiping">Gossiping</label>
+                            <input class="inputBox" type="checkbox" id="schoolLife" value="schoolLife" onclick="singleTimeAnswer(this)"/>
+                            <label for="schoolLife">SchoolLife</label><br>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="button" onclick="getInputDataCreateArticle()">Add</div>
+                    </div>
+                </div>            
+            </article>
+            <article class="articleFunction">
+                <h1 class="title CreatArticle">Search Article</h1>
+                <div>
+                    <div class="content flex_column flex_align_end">
+                        <div class="container">
+                            <label class="label" for="title">Title</label>
+                            <input  class="input" type="text" id="title" name="title"/><br>
+                        </div>
+                        <div class="container">
+                            <label class="label" for="content">Content</label>
+                            <input class="input" type="text" id="content" name="content"/>    
+                        </div>
+                        <div class="container ">
+                            <input class="inputBox" type="checkbox" id="beauty" value="beauty" onclick="singleTimeAnswer(this)"/>
+                            <label for="beauty">Beauty</label>
+                            <input class="inputBox" type="checkbox" id="gossiping" value="gossiping" onclick="singleTimeAnswer(this)"/>
+                            <label for="gossiping">Gossiping</label>
+                            <input class="inputBox" type="checkbox" id="schoolLife" value="schoolLife" onclick="singleTimeAnswer(this)"/>
+                            <label for="schoolLife">SchoolLife</label><br>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="button" onclick="">Search</div>
+                    </div>
+                </div>     
+            </article>
         </section>
     </body>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
