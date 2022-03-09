@@ -64,7 +64,6 @@ function getInputDataCreateArticle(){
     }else if (schoolLife){
         tag ='SchoolLife';
     }
-    console.log(`${title} ${content} ${tag}`);
     setData(title,content,tag);
 }
 
@@ -80,24 +79,52 @@ function search(authorEmail){
     result.innerHTML = '';
     q.get().then(response => {
         response.forEach(doc=>{
-            console.log(doc.data());
             renderFriend(doc.data());
         })
     }).then(()=>{console.log(`搜尋完畢`)});
 }
 
 function renderFriend(data){
-    console.log(`sendInvitation("${data.name}","${data.id}")`);
     const result = document.getElementById('friendResult');
     result.innerHTML = `
         <div>User: ${data.name}</div>
-        <div class="button" onclick="sendInvitation('${data.name}','${data.id}')">加為好友</div>
+        <div class="button" onclick="checkRelationStatusBeforeSendInvitation('${data.name}','${data.id}')">add</div>
     `;
 }
 
+function checkRelationStatusBeforeSendInvitation(receiver, receiverId){
+    const db = firebase.firestore();
+    const collectionRef = db.collection(collectionNameFriend);
+    let q = collectionRef.where("key","array-contains","3");
+    let haveRelationStatus = false;
+    if(receiverId === '3'){
+        alert(`你為什麼要加自己好友?`);
+        
+    }else {
+        q.get().then(response => {
+            response.forEach(doc=>{
+                if(doc.data().key.indexOf(receiverId) !== -1 ){
+                    if(doc.data().status){
+                        alert(`你們已經是好友`);
+                        haveRelationStatus = true;
+                    }else if(doc.data().key.indexOf(receiverId) === 0){
+                        alert(`對方已發好友邀請,請到Invitation確認後你們就是好友了!`);
+                        haveRelationStatus = true;
+                    }else if(doc.data().key.indexOf(receiverId) === 1){
+                        alert(`您之前已經發過好友邀請了,請等對方確認`);
+                        haveRelationStatus = true;
+                    }
+                }
+            })
+        }).then(() =>{
+            if (!haveRelationStatus){
+            sendInvitation(receiver, receiverId);
+            }
+        })
+    }
+}
+
 function sendInvitation(receiver, receiverId){
-    console.log(receiver);
-    console.log(receiverId);
     const db = firebase.firestore();
     const collectionRef = db.collection(collectionNameFriend);
     const docRef = collectionRef.doc();
@@ -113,7 +140,6 @@ function sendInvitation(receiver, receiverId){
 }
 
 function confirmInvitation(name,id){
-    console.log(id);
     const db = firebase.firestore();
     const invitation = document.getElementById('invitation');
     const updateFile = db.collection(collectionNameFriend).doc(id);
@@ -122,10 +148,19 @@ function confirmInvitation(name,id){
         status: true
     })
     .then(() => {
-        console.log(`您已和${name}成為好友`);
+        alert(`您已和${name}成為好友`);
     })
     .catch((error) => {
         console.error("Error", error);
+    });
+}
+
+function instantlyArticle(){
+    const db = firebase.firestore();
+    db.collection(collectionNameFriend).onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc)=>{
+            console.log(doc.data());
+        })
     });
 }
 
@@ -168,10 +203,28 @@ function renderInvitation(data){
             'beforeend',
             `<div class="flex_end">
                 <div>${name}</div>
-                <div class="button friendbutton" onclick="confirmInvitation('${name}','${data.id}')">Confirm</div>
+                <div class="button friendbutton" onclick="checkRelationStatusBeforeCondfirmInvitation('${name}','${data.id}','${data.data().key[0]}')">Confirm</div>
             </div>
             `
         )
+    })
+}
+
+function checkRelationStatusBeforeCondfirmInvitation(sender, docId, senderId){
+    const db = firebase.firestore();
+    const collectionRef = db.collection(collectionNameFriend);
+    let q = collectionRef.where('key','array-contains','3')
+    let haveRelationStatus = false;
+    q.get().then(response => {
+        response.forEach(doc=>{
+            if(doc.data().key[0] === senderId && doc.data().status){
+                alert(`你們已經是好友, 現在你們是好友~~~中的好友`);
+            }
+        })
+    }).then(() =>{
+        if (!haveRelationStatus){
+            confirmInvitation(sender, docId);
+        }
     })
 }
 
@@ -197,7 +250,7 @@ function renderFriendList(doc){
 function removeFriend(id){
     const db = firebase.firestore();
     db.collection(collectionNameFriend).doc(id).delete().then(() => {
-        console.log("Document successfully deleted!");
+        alert("你們已不再是朋友關係");
     }).catch((error) => {
         console.error("Error removing document: ", error);
     });
@@ -206,6 +259,7 @@ function removeFriend(id){
 firebaseSDK ();
 instantlyInvitation();
 instantlyFriendList();
+//instantlyArticle();
 
 //test
 function sendInvitationTest(){
@@ -219,6 +273,6 @@ function sendInvitationTest(){
         status: false,
     }
     docRef.set(data,{merge: true}).then(() => {
-    console.log(`已發送好友邀請. 邀請函: ${docRef.id}`);
+    alert(`已發送好友邀請. 邀請函: ${docRef.id}`);
     });
 }
