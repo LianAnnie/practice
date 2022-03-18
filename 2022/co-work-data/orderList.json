@@ -1,0 +1,31 @@
+{
+    "data": [
+      {
+        "prime": "TAPPAY PRIME KEY",
+        "order": {
+          "shipping": "delivery",
+          "payment": "credit_card",
+          "subtotal": 1234,
+          "freight": 14,
+          "total": 1300,
+          "discount": 90,
+          "totalDiscount": 1200,
+          "couponTitle": "滿千折百",
+          "orderId": 111111,
+          "createTime": "2016-08-29T09:12:33.001Z",
+          "orderStatus": "出貨中",
+          "list": {
+            "id": "Luke",
+            "name": "0987654321",
+            "price": "luke@gmail.com",
+            "color": {
+              "code": "DDF0FF",
+              "name": "淺藍"
+            },
+            "size": "size",
+            "qty": 3
+          }
+        }
+      }
+    ]
+  }

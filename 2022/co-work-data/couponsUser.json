@@ -1,0 +1,23 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "coupon_status": 1,
+        "coupon": {
+          "couponId": 1,
+          "couponCode": "A123",
+          "title": "全站滿千折百",
+          "rangeType": 1,
+          "productId": [
+            "100001"
+          ],
+          "ruleType": 1,
+          "discount": 50,
+          "minAmount": 0,
+          "startTime": "2016-08-29T09:12:33.001Z",
+          "endTime": "2016-08-29T09:12:33.001Z",
+          "stock": 10000
+        }
+      }
+    ]
+}
